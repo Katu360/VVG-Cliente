@@ -1,0 +1,20 @@
+// sensorsreport.proto - Protocolo de comunicaciones con las raspberrypi =)
+//
+message paquete {
+	required string protocol = 1;
+	required string protocol_version = 2;
+	required string deviceName = 3;     // Nombre Camara
+	required uint64 timestamp = 4;      // Seg. desde 1/1/1970
+
+	required bytes img = 5; //Frame
+
+	message rect {
+		required int32 x = 1;
+		required int32 y = 2;
+		required int32 width = 3;
+		required int32 height = 4;
+	}
+
+	repeated rect rects = 6;
+
+}
